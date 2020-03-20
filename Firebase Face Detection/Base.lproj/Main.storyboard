@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hIf-Gv-C8t">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="O8k-dh-mOn">
+            <objects>
+                <viewController id="hIf-Gv-C8t" customClass="ViewController" customModule="Firebase_Face_Detection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="esU-vm-Bgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f8x-as-mxg">
+                                <rect key="frame" x="0.0" y="30" width="375" height="407"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="407" id="8lZ-Zf-WbC">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VD0-O2-puG">
+                                <rect key="frame" x="0.0" y="30" width="375" height="407"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wux-61-UTD">
+                                <rect key="frame" x="132.5" y="534" width="110" height="110"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Bgh-w0-Id3">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="110" id="oP6-Td-3Nk">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="18"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraBtn:" destination="hIf-Gv-C8t" eventType="touchUpInside" id="GNx-pd-Qjs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg6-Dy-R0y">
+                                <rect key="frame" x="166.5" y="452" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aLx-JP-b1f">
+                                <rect key="frame" x="163" y="488" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switcherAction:" destination="hIf-Gv-C8t" eventType="valueChanged" id="coZ-Nw-bog"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozN-JA-7dx">
+                                <rect key="frame" x="222" y="493" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera Roll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ftz-zp-cja">
+                                <rect key="frame" x="61" y="493" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVV-dI-7aF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="hHI-b7-xZm">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="hHI-b7-xZm" firstAttribute="centerY" secondItem="mVV-dI-7aF" secondAttribute="centerY" id="9lq-O8-KwU">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                    <constraint firstItem="hHI-b7-xZm" firstAttribute="centerX" secondItem="mVV-dI-7aF" secondAttribute="centerX" id="dua-lE-VbS">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </constraint>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wux-61-UTD" firstAttribute="centerX" secondItem="esU-vm-Bgv" secondAttribute="centerX" id="5OF-GA-ig6">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="ozN-JA-7dx" firstAttribute="centerY" secondItem="aLx-JP-b1f" secondAttribute="centerY" id="9eH-Yt-o41">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="aLx-JP-b1f" firstAttribute="top" secondItem="gg6-Dy-R0y" secondAttribute="bottom" constant="15" id="9uu-GP-Or9">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="f8x-as-mxg" firstAttribute="trailing" secondItem="lY4-WK-I2G" secondAttribute="trailing" id="Clb-dG-GYi">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="f8x-as-mxg" firstAttribute="top" secondItem="lY4-WK-I2G" secondAttribute="top" constant="30" id="JMg-0g-X0F">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="aLx-JP-b1f" firstAttribute="centerX" secondItem="esU-vm-Bgv" secondAttribute="centerX" id="NHb-UP-Yb1">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="aLx-JP-b1f" firstAttribute="leading" secondItem="Ftz-zp-cja" secondAttribute="trailing" constant="10" id="NkT-44-eB1">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="mVV-dI-7aF" firstAttribute="leading" secondItem="lY4-WK-I2G" secondAttribute="leading" id="R9P-cI-XCM">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="mVV-dI-7aF" firstAttribute="top" secondItem="lY4-WK-I2G" secondAttribute="top" id="RcN-Uz-fHo">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="gg6-Dy-R0y" firstAttribute="centerX" secondItem="esU-vm-Bgv" secondAttribute="centerX" id="Stc-z2-iaA">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="f8x-as-mxg" firstAttribute="leading" secondItem="lY4-WK-I2G" secondAttribute="leading" id="Zqo-GQ-19M">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VD0-O2-puG" firstAttribute="trailing" secondItem="f8x-as-mxg" secondAttribute="trailing" id="ZyN-Sf-CzV">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="Ftz-zp-cja" firstAttribute="centerY" secondItem="aLx-JP-b1f" secondAttribute="centerY" id="aUF-1d-kYV">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="gg6-Dy-R0y" firstAttribute="top" secondItem="f8x-as-mxg" secondAttribute="bottom" constant="15" id="f9u-PZ-Qrm">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VD0-O2-puG" firstAttribute="top" secondItem="f8x-as-mxg" secondAttribute="top" id="khz-dI-aJK">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="Wux-61-UTD" firstAttribute="top" secondItem="aLx-JP-b1f" secondAttribute="bottom" constant="15" id="lGU-Er-L72">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="mVV-dI-7aF" firstAttribute="trailing" secondItem="lY4-WK-I2G" secondAttribute="trailing" id="lno-QK-QDR">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VD0-O2-puG" firstAttribute="bottom" secondItem="f8x-as-mxg" secondAttribute="bottom" id="nSU-Lr-KmC">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="ozN-JA-7dx" firstAttribute="leading" secondItem="aLx-JP-b1f" secondAttribute="trailing" constant="10" id="oPZ-pR-PG0">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="mVV-dI-7aF" firstAttribute="bottom" secondItem="lY4-WK-I2G" secondAttribute="bottom" id="vNF-p3-v6R">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                            <constraint firstItem="VD0-O2-puG" firstAttribute="leading" secondItem="f8x-as-mxg" secondAttribute="leading" id="x6t-O4-OgJ">
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </constraint>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lY4-WK-I2G"/>
+                    </view>
+                    <connections>
+                        <outlet property="cameraBtn" destination="Wux-61-UTD" id="wFx-Fh-Iad"/>
+                        <outlet property="holderView" destination="VD0-O2-puG" id="esr-GV-fkp"/>
+                        <outlet property="imageView" destination="f8x-as-mxg" id="ETX-Lz-V65"/>
+                        <outlet property="loaderView" destination="mVV-dI-7aF" id="W7h-hh-G4G"/>
+                        <outlet property="resultLbl" destination="gg6-Dy-R0y" id="fqC-nE-CCP"/>
+                        <outlet property="spinner" destination="hHI-b7-xZm" id="taf-n7-fB0"/>
+                        <outlet property="switcher" destination="aLx-JP-b1f" id="ROj-Dp-poS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EFB-Dx-fRc" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="143" y="134"/>
+        </scene>
+    </scenes>
+</document>

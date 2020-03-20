@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>921637760581-defjlogs71rforf7336t4lphu13p8570.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.921637760581-defjlogs71rforf7336t4lphu13p8570</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCmc1Esy5tUbsq5lKxbk1rKyxEqLu9g2rM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>921637760581</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>SandroJanjghava.Firebase-Face-Detection</string>
+	<key>PROJECT_ID</key>
+	<string>solid-time-133008</string>
+	<key>STORAGE_BUCKET</key>
+	<string>solid-time-133008.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:921637760581:ios:0d344fbeda176ba92f3d2c</string>
+	<key>DATABASE_URL</key>
+	<string>https://solid-time-133008.firebaseio.com</string>
+</dict>
+</plist>
