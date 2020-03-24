@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     @IBOutlet private weak var switcher: UISwitch!
     @IBOutlet private weak var loaderView: UIView!
     @IBOutlet private weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var holderView: UIView!
     
     // MARK: - Properties
     private let options = VisionFaceDetectorOptions()
@@ -69,6 +68,23 @@ class ViewController: UIViewController {
         }
     }
     
+    private func createFaceOutline(for rectangle: CGRect){
+        let yellowView = UIView()
+        yellowView.backgroundColor = .clear
+        yellowView.layer.borderWidth = 3
+        yellowView.layer.borderColor = UIColor.yellow.cgColor
+        yellowView.layer.cornerRadius = 5
+        yellowView.alpha = 0.0
+        yellowView.frame = rectangle
+        yellowView.tag = 232323
+        self.view.addSubview(yellowView)
+        
+        UIView.animate(withDuration: 0.3) {
+            yellowView.alpha = 0.75
+            self.spinner.alpha = 0.0
+        }        
+    }
+    
     private func detectImage(image: UIImage) {
         self.showHideLoader(show: true)
         if self.visionEnum == .apple {
@@ -94,7 +110,28 @@ class ViewController: UIViewController {
                     return
                 }
                 faces.forEach({ face in
-                    
+                    DispatchQueue.main.async {
+                        guard let transform = self?.transformMatrix() else { return }
+                        let transformedRect = face.frame.applying(transform)
+//                        guard let cgImage = self?.cropImage(faceRectangle: transformedRect, cgImage: image.cgImage!) else {
+//                            return
+//                        }
+//                        self?.imageView.image = UIImage(cgImage: cgImage)
+                        let yellowView = UIView(frame: transformedRect)
+                        yellowView.backgroundColor = .yellow
+                        yellowView.layer.borderWidth = 3
+//                        yellowView.layer.borderColor = UIColor.yellow.cgColor
+                        yellowView.layer.cornerRadius = 5
+//                        yellowView.alpha = 0.0
+//                        yellowView.frame = transformedRect
+                        yellowView.tag = 232323
+                        self?.imageView.addSubview(yellowView)
+
+                        UIView.animate(withDuration: 0.3) {
+                            yellowView.alpha = 0.75
+                            self?.spinner.alpha = 0.0
+                        }
+                    }
                 })
             })
         } else {
@@ -106,6 +143,30 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    private func transformMatrix() -> CGAffineTransform {
+       guard let image = imageView.image else { return CGAffineTransform() }
+       let imageViewWidth = imageView.frame.size.width
+       let imageViewHeight = imageView.frame.size.height
+       let imageWidth = image.size.width
+       let imageHeight = image.size.height
+
+       let imageViewAspectRatio = imageViewWidth / imageViewHeight
+       let imageAspectRatio = imageWidth / imageHeight
+       let scale = (imageViewAspectRatio > imageAspectRatio)
+         ? imageViewHeight / imageHeight : imageViewWidth / imageWidth
+
+       // Image view's `contentMode` is `scaleAspectFit`, which scales the image to fit the size of the
+       // image view by maintaining the aspect ratio. Multiple by `scale` to get image's original size.
+       let scaledImageWidth = imageWidth * scale
+       let scaledImageHeight = imageHeight * scale
+       let xValue = (imageViewWidth - scaledImageWidth) / CGFloat(2.0)
+       let yValue = (imageViewHeight - scaledImageHeight) / CGFloat(2.0)
+
+       var transform = CGAffineTransform.identity.translatedBy(x: xValue, y: yValue)
+       transform = transform.scaledBy(x: scale, y: scale)
+       return transform
+     }
     
     private func showSimpleActionSheet(controller: UIViewController) {
         if self.imageHelper == nil {
@@ -142,11 +203,21 @@ class ViewController: UIViewController {
         self.present(myPickerController, animated: true, completion: nil)
     }
     
+    private func cropImage(faceRectangle: CGRect, cgImage: CGImage) -> CGImage? {
+        let width = faceRectangle.width * CGFloat(cgImage.width)
+        let height = faceRectangle.height * CGFloat(cgImage.height)
+        let x = faceRectangle.origin.x * CGFloat(cgImage.width)
+        let y = (1 - faceRectangle.origin.y) * CGFloat(cgImage.height) - height
+        
+        let croppingRect = CGRect(x: faceRectangle.origin.x, y: faceRectangle.origin.y, width: 400, height: 400)
+        let image = cgImage.cropping(to: croppingRect)
+        return image
+    }
+    
     // MARK: - IBAction
     @IBAction func cameraBtn(_ sender: Any) {
         self.showSimpleActionSheet(controller: self)
     }
-    
     
     @IBAction func switcherAction(_ sender: UISwitch) {
         if sender.isOn {
@@ -173,6 +244,17 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             }
         }
         let image = info[.originalImage] as! UIImage
+        let width = self.view.frame.width
+        let scaledHeight = width / image.size.width * image.size.height
+        self.imageView.frame = CGRect(x: 0, y: 0, width: width, height: scaledHeight)
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.imageView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.imageView.leadingAnchor.constraint(equalTo: imageView.leadingAnchor),
+            self.imageView.widthAnchor.constraint(equalToConstant: width),
+            self.imageView.heightAnchor.constraint(equalToConstant: scaledHeight),
+        ])
+        self.view.layoutIfNeeded()
         self.imageView.image = image
         self.detectImage(image: image)
         self.dismiss(animated: true, completion: nil)

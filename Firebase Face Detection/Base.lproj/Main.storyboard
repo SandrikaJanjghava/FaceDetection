@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f8x-as-mxg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f8x-as-mxg">
                                 <rect key="frame" x="0.0" y="30" width="375" height="407"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="407" id="8lZ-Zf-WbC">
@@ -26,10 +26,6 @@
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VD0-O2-puG">
-                                <rect key="frame" x="0.0" y="30" width="375" height="407"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wux-61-UTD">
                                 <rect key="frame" x="132.5" y="534" width="110" height="110"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -156,22 +152,12 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="VD0-O2-puG" firstAttribute="trailing" secondItem="f8x-as-mxg" secondAttribute="trailing" id="ZyN-Sf-CzV">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="Ftz-zp-cja" firstAttribute="centerY" secondItem="aLx-JP-b1f" secondAttribute="centerY" id="aUF-1d-kYV">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
                             <constraint firstItem="gg6-Dy-R0y" firstAttribute="top" secondItem="f8x-as-mxg" secondAttribute="bottom" constant="15" id="f9u-PZ-Qrm">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
-                            <constraint firstItem="VD0-O2-puG" firstAttribute="top" secondItem="f8x-as-mxg" secondAttribute="top" id="khz-dI-aJK">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -186,11 +172,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="VD0-O2-puG" firstAttribute="bottom" secondItem="f8x-as-mxg" secondAttribute="bottom" id="nSU-Lr-KmC">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                             <constraint firstItem="ozN-JA-7dx" firstAttribute="leading" secondItem="aLx-JP-b1f" secondAttribute="trailing" constant="10" id="oPZ-pR-PG0">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
@@ -201,17 +182,11 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </constraint>
-                            <constraint firstItem="VD0-O2-puG" firstAttribute="leading" secondItem="f8x-as-mxg" secondAttribute="leading" id="x6t-O4-OgJ">
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shouldAdjustConstantToFitDevice" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lY4-WK-I2G"/>
                     </view>
                     <connections>
                         <outlet property="cameraBtn" destination="Wux-61-UTD" id="wFx-Fh-Iad"/>
-                        <outlet property="holderView" destination="VD0-O2-puG" id="esr-GV-fkp"/>
                         <outlet property="imageView" destination="f8x-as-mxg" id="ETX-Lz-V65"/>
                         <outlet property="loaderView" destination="mVV-dI-7aF" id="W7h-hh-G4G"/>
                         <outlet property="resultLbl" destination="gg6-Dy-R0y" id="fqC-nE-CCP"/>
